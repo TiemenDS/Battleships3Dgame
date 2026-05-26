@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>()
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZEESLAG GAME — Project Showcase</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Orbitron (display) + Rajdhani (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-grid"></div>
+    <div class="loader-content">
+      <div class="loader-radar">
+        <div class="radar-ring r1"></div>
+        <div class="radar-ring r2"></div>
+        <div class="radar-ring r3"></div>
+        <div class="radar-sweep"></div>
+        <div class="radar-dot"></div>
+      </div>
+      <p class="loader-text">INITIALISEREN<span class="blink">_</span></p>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <p class="loader-pct">0%</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       CUSTOM CURSOR
+  ═══════════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">⚓ ZSG</div>
+    <ul class="nav-links">
+      <li><a href="#over">Over</a></li>
+      <li><a href="#gameplay">Gameplay</a></li>
+      <li><a href="#hoe">Hoe werkt het</a></li>
+      <li><a href="#tech">Tech</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#code">Code</a></li>
+      <li><a href="#challenges">Challenges</a></li>
+      <li><a href="#einde">Conclusie</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       1. HERO SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="hero">
+    <!-- Animated ocean grid canvas -->
+    <canvas id="heroCanvas"></canvas>
+
+    <!-- Particle field -->
+    <div id="particles"></div>
+
+    <!-- Grid overlay -->
+    <div class="grid-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">PROJECT SHOWCASE — 2026</div>
+      <h1 class="hero-title reveal-up" style="--d:0.1s">
+        <span class="title-line">ZEESLAG</span>
+        <span class="title-line accent">GAME</span>
+      </h1>
+      <p class="hero-sub reveal-up" style="--d:0.3s">
+        Een strategisch beurtgebaseerd spel — gebouwd met passie, code en precisie
+      </p>
+      <div class="hero-makers reveal-up" style="--d:0.45s">
+        <span class="maker">👤 Tiemen Deschacht</span>
+        <span class="sep">✦</span>
+        <span class="maker">👤 Otto Hooghe</span>
+        <span class="sep">✦</span>
+        <span class="maker">👤 Mathias Coene</span>
+      </div>
+      <button class="btn-primary reveal-up" style="--d:0.55s" onclick="smoothScrollTo('#over')">
+        <span>Start presentatie</span>
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
+      </button>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <p>Scroll</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. OVER HET PROJECT
+  ═══════════════════════════════════════════════ -->
+  <section id="over" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">01 — OVER HET PROJECT</span>
+        <h2>Wat is Zeeslag?</h2>
+        <p class="section-desc">Een volledig functioneel Zeeslag-spel, In 3D</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Doel -->
+        <div class="card reveal-up" style="--d:0s">
+          <div class="card-icon">🎯</div>
+          <h3>Doel van het project</h3>
+          <p>Multiplayer Zeelag game in 3D</p>
+          <div class="card-glow"></div>
+        </div>
+        <!-- Talen -->
+        <div class="card reveal-up" style="--d:0.1s">
+          <div class="card-icon">💻</div>
+          <h3>Programmeertalen & Libraries</h3>
+          <ul class="pill-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Three.js</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+        <!-- Features -->
+        <div class="card reveal-up" style="--d:0.2s">
+          <div class="card-icon">⚡</div>
+          <h3>Features</h3>
+          <ul class="feature-list">
+            <li>✓ Interactief speelbord</li>
+            <li>✓ Schepen plaatsen</li>
+            <li>✓ Beurt-gebaseerd systeem</li>
+            <li>✓ Treffer/misser animaties</li>
+            <li>✓ Win detectie</li>
+            <li>✓ 3D environment adhv Three.js </li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+        <!-- Extra -->
+        <div class="card reveal-up" style="--d:0.3s">
+          <div class="card-icon">🚀</div>
+          <h3>Ons meest geavanceerde Feature</h3>
+          <p>
+            Met Three.js ontwikkelden we een interactieve 3D-versie van Zeeslag met
+            realtime rendering, camera-controls, animaties en WebGL-technologie
+            voor een vloeiende speelervaring in de browser.
+          </p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ═══════════════════════════════════════════════
+     3. GAMEPLAY SECTIE
+═══════════════════════════════════════════════ -->
+<section id="gameplay" class="section section-dark">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header reveal-up">
+      <span class="section-tag">02 — GAMEPLAY</span>
+      <h2>Het spel in actie</h2>
+      <p class="section-description">
+        Beleef een moderne 3D-versie van Zeeslag met interactieve gameplay,
+        realtime effecten en tactische gevechten.
+      </p>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="gameplay-layout">
+
+      <!-- Left Info -->
+      <div class="gameplay-text reveal-left">
+        <h3>Strategisch denken</h3>
+        <p>
+          Analyseer het speelveld, voorspel vijandelijke posities en gebruik
+          tactiek om de volledige vloot van je tegenstander uit te schakelen.
+        </p>
+
+        <br/>
+
+        <h3>Realtime actie</h3>
+        <p>
+          Elke aanval activeert dynamische animaties en visuele effecten
+          waardoor het spel levendig en interactief aanvoelt.
+        </p>
+      </div>
+
+      <!-- Center Gameplay Board -->
+      <div class="gameplay-board reveal-up">
+
+        <div class="board-container">
+
+          <!-- Player -->
+          <div class="board-side">
+            <div class="board-label">JOUW VLOOT</div>
+            <div class="battle-grid" id="battleGrid"></div>
+          </div>
+
+          <!-- Enemy -->
+          <div class="board-side">
+            <div class="board-label enemy">VIJANDELIJK</div>
+            <div class="battle-grid enemy-grid" id="enemyGrid"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Info -->
+      <div class="gameplay-text reveal-right">
+
+        <h3>Dynamische borden</h3>
+        <p>
+          Dankzij Three.js worden de spelborden realtime gerenderd met
+          3D-effecten, lichteffecten en vloeiende animaties.
+        </p>
+
+        <br/>
+
+        <h3>Score & stats</h3>
+        <p>
+          Volg statistieken zoals nauwkeurigheid, aantal treffers
+          en gewonnen rondes tijdens elke match.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Gameplay Media 
+    <div class="screenshot-placeholder reveal-up">
+      <div class="ph-inner">
+        <div class="ph-icon">📷</div>
+        <p>Gameplay Screenshot of Demo Video</p>
+        <p class="ph-hint">
+          Vervang deze placeholder door een &lt;img&gt; of &lt;video&gt; element.
+        </p>
+      </div>
+    </div>-->
+
+  </div>
+</section>
+  <!-- ═══════════════════════════════════════════════
+       4. HOE WERKT HET — TIMELINE
+  ═══════════════════════════════════════════════ -->
+  <section id="hoe" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">03 — HOE WERKT HET</span>
+        <h2>De spellogica</h2>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="tl-item left reveal-left" data-step="1">
+          <div class="tl-dot"><span>1</span></div>
+          <div class="tl-card">
+            <div class="tl-icon">🚢</div>
+            <h3>Schepen plaatsen</h3>
+            <p>De speler plaatst zijn vloot strategisch op een 10×10 raster. Elk schip heeft een vaste lengte en kan horizontaal of verticaal geplaatst worden.</p>
+          </div>
+        </div>
+
+        <div class="tl-item right reveal-right" data-step="2">
+          <div class="tl-dot"><span>2</span></div>
+          <div class="tl-card">
+            <div class="tl-icon">🔄</div>
+            <h3>Beurt systeem</h3>
+            <p>Spelers wisselen beurten af. In elke beurt kies je een coördinaat op het vijandelijke bord om op te schieten. Strategie bepaalt wie wint.</p>
+          </div>
+        </div>
+
+        <div class="tl-item left reveal-left" data-step="3">
+          <div class="tl-dot"><span>3</span></div>
+          <div class="tl-card">
+            <div class="tl-icon">💥</div>
+            <h3>Treffer / Misser logica</h3>
+            <p>Als je raakt wordt het vakje rood gemarkeerd met een explosie-. Bij een misser verschijnt een blauwe splash. Geraakte schepen worden bijgehouden.</p>
+          </div>
+        </div>
+
+        <div class="tl-item right reveal-right" data-step="4">
+          <div class="tl-dot"><span>4</span></div>
+          <div class="tl-card">
+            <div class="tl-icon">🏆</div>
+            <h3>Win conditie</h3>
+            <p>De speler die als eerste alle schepen van de tegenstander naar beneden haalt, wint. Het eindscherm toont de winnaar met animaties en statistieken.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. TECHNOLOGIEËN
+  ═══════════════════════════════════════════════ -->
+  <section id="tech" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">04 — TECHNOLOGIEËN</span>
+        <h2>De technische stack</h2>
+      </div>
+
+      <div class="tech-grid" id="techGrid">
+        <div class="tech-card reveal-up" style="--d:0s; --c:#e44d26">
+          <div class="tech-logo">HTML</div>
+          <h3>HTML</h3>
+          <p>Semantische structuur, DOM-opbouw en spelinterface.</p>
+          <div class="tech-border"></div>
+        </div>
+        <div class="tech-card reveal-up" style="--d:0.1s; --c:#264de4">
+          <div class="tech-logo">CSS</div>
+          <h3>CSS</h3>
+          <p>Animaties, responsieve layout en visuele stijl.</p>
+          <div class="tech-border"></div>
+        </div>
+        <div class="tech-card reveal-up" style="--d:0.2s; --c:#f0db4f">
+          <div class="tech-logo">JS</div>
+          <h3>JavaScript</h3>
+          <p>Spellogica, interactiviteit en DOM-manipulatie.</p>
+          <div class="tech-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. SCREENSHOTS GALLERY
+  ═══════════════════════════════════════════════ -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">05 — SCREENSHOTS</span>
+        <h2>Visuele showcase</h2>
+      </div>
+
+      <div class="gallery-track-wrap reveal-up">
+        <button class="gal-btn gal-prev" id="galPrev">‹</button>
+
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gal-item" onclick="openModal(0)">
+            <img src="media/Resized_Zeeslag_Game_WideView.jpg" alt="Screenshot 1" class="gal-img">
+          </div>
+        </div>
+
+        <button class="gal-btn gal-next" id="galNext">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+      <div class="modal-nav">
+        <button onclick="modalNav(-1)">‹</button>
+        <span id="modalCounter">1 / 6</span>
+        <button onclick="modalNav(1)">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       7. CODE SHOWCASE
+  ═══════════════════════════════════════════════ -->
+  <section id="code" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">06 — CODE SHOWCASE</span>
+        <h2>Achter de schermen</h2>
+      </div>
+
+      <div class="code-editor reveal-up">
+        <div class="editor-titlebar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="editor-filename"></span>
+          <div class="editor-tabs">
+            <button class="tab active" onclick="switchTab(this,'js')">zeeslag.js</button>
+            <button class="tab" onclick="switchTab(this,'html')">index.html</button>
+            <button class="tab" onclick="switchTab(this,'css')">style.css</button>
+            <button class="tab" onclick="switchTab(this,'json')">ships.json</button>
+          </div>
+        </div>
+        <div class="editor-body">
+          <div class="line-nums" id="lineNums"></div>
+          <pre class="code-area" id="codeArea"><code id="codeContent"></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       8. CHALLENGES & OPLOSSINGEN
+  ═══════════════════════════════════════════════ -->
+  <section id="challenges" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">07 — CHALLENGES EN EXTRA'S</span>
+        <h2>Uitdagingen &amp; oplossingen</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+
+        <div class="acc-item reveal-up" style="--d:0s"> 
+          <button class="acc-header" onclick="toggleAcc(this)"> 
+            <span class="acc-icon">🔗</span> 
+            <span>Challenge 1: 2 PC's Connecteren</span> 
+            <span class="acc-arrow">▼</span> 
+          </button> 
+          <div class="acc-body"> 
+            <p>
+              De twee laptops zijn verbonden via een <strong>LAN-kabel</strong> — 
+              zonder router of wifi. Omdat er geen DHCP aanwezig is, kregen beide pc's een 
+              <strong>statisch IP</strong>: <code>192.168.0.1</code> (server) en 
+              <code>192.168.0.2</code> (client). De game communiceert via 
+              <strong>WebSockets</strong> op <code>ws://192.168.0.1:3000</code>, 
+              zodat schoten en speldata realtime worden uitgewisseld.
+            </p>
+          </div> 
+        </div>
+
+          <div class="acc-item reveal-up" style="--d:0.1s">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <span class="acc-icon">🔄</span>
+          <span>Challenge 2 (extra): kannonen op 3D schepen dynamisch richten</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+
+        <div class="acc-body">
+          <p>
+            We hebben de kanonnen van de 3D schepen automatisch laten draaien richting het vijandelijke veld.
+            Bij het plaatsen controleren we of een schip horizontaal of verticaal staat en passen we de rotatie
+            van het schip en de kanonnen realtime aan met Three.js.
+          </p>
+
+          <img
+            src="media/Zeeslag_Game1.png"
+            alt="3D scheepskanonnen gericht naar vijandelijk veld"
+            style="
+              width:70%;
+              max-width:420px;
+              margin-top:0px;
+              border-radius:10px;
+              border:1px solid rgba(255,255,255,0.08);
+              display:block;
+              margin-left:auto;
+              margin-right:auto;
+            ">
+      </div>
+
+      <div class="acc-item reveal-up" style="--d:0.2s">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <span class="acc-icon">👥</span>
+          <span>Challenge 3: Samenwerking</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+
+        <div class="acc-body">
+          <p>
+            We hebben met 3 personen tegelijk aan het project gewerkt via de Live Share extensie in VS Code.
+            Hierdoor konden we realtime elkaars code aanpassen, bugs oplossen en onderdelen zoals Three.js,
+            multiplayer en UI parallel ontwikkelen.
+          </p>
+        </div>
+      </div>
+
+<!--       <div class="acc-item reveal-up" style="--d:0.3s">
+          <button class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-icon">🤖</span>
+            <span>Challenge 4: Placeholder uitdaging</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <p>Placeholder: Voeg hier een extra uitdaging toe die jullie tegenkwamen en hoe jullie deze oplosten.</p>
+          </div>
+        </div>
+-->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       9. EINDE / CONCLUSIE
+  ═══════════════════════════════════════════════ -->
+  <section id="einde" class="section section-end">
+    <canvas id="endCanvas"></canvas>
+    <div class="grid-overlay"></div>
+    <div class="container end-content">
+      <div class="radar-end reveal-up">
+        <div class="radar-ring r1"></div>
+        <div class="radar-ring r2"></div>
+        <div class="radar-ring r3"></div>
+        <div class="radar-sweep"></div>
+        <div class="radar-dot"></div>
+      </div>
+      <div class="section-tag reveal-up">08 — CONCLUSIE</div>
+      <h2 class="end-title reveal-up">Bedankt voor<br/>het kijken!</h2>
+      <p class="end-sub reveal-up">Dit project werd gemaakt door:</p>
+      <div class="end-makers reveal-up">
+        <div class="end-maker">
+          <div class="maker-avatar">👤</div>
+          <p>Tiemen Deschacht</p>
+        </div>
+        <div class="end-maker">
+          <div class="maker-avatar">👤</div>
+          <p>Otto Hooghe</p>
+        </div>
+        <div class="end-maker">
+          <div class="maker-avatar">👤</div>
+          <p>Mathias Coene</p>
+        </div>
+      </div>
+      <p class="end-desc reveal-up"></p>
+      <div class="end-buttons reveal-up">
+        <a href="https://tiemends.github.io/Battleships3Dgame/" target="_blank" class="btn-primary">
+          <span>⚓ Bekijk op GitHub</span>
+        </a>
+        <button class="btn-secondary" onclick="smoothScrollTo('#hero')">
+          <span>↑ Terug naar begin</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer>
+    <p>⚓ ZEESLAG — Project Showcase 2026 &nbsp;|&nbsp; Tiemen Deschacht &amp; Otto Hooghe &amp; Mathias Coene</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
